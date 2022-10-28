@@ -13,11 +13,11 @@
                 {
                     <IgbCard Outlined="true" class="card" dashboard-scope>
                         <IgbCardMedia class="media-content" dashboard-scope>
-                            <img src="@item.COURSEPIC" class="image" />
+                            <img src="@item.Image" class="image" />
                         </IgbCardMedia>
                         <IgbCardHeader>
                             <h3 slot="title">
-                                @item.COURSE
+                                @item.Course
                             </h3>
                             <h5 slot="subtitle">
                             </h5>
@@ -46,12 +46,12 @@
                 Explore new categories
             </h6>
             <div class="row-layout group_4">
-                @foreach (var item in learningAppCourseCategories)
+                @foreach (var item in learningAppCategories)
                 {
                     <div class="column-layout group_5">
-                        <img src="@item.CATEGORYPIC" class="image_1" />
+                        <img src="@item.Image" class="image_1" />
                         <p class="typography__subtitle-1 content">
-                            @item.CATEGORY
+                            @item.Category
                         </p>
                     </div>
                 }
@@ -74,13 +74,13 @@
                         <div>
                             <div class="row-layout group_7">
                                 <div class="row-layout group_8">
-                                    <IgbAvatar Src="@item.LECTURERPIC" Size="SizableComponentSize.Medium" Shape="AvatarShape.Circle" class="avatar" dashboard-scope></IgbAvatar>
+                                    <IgbAvatar Src="@item.Avatar" Size="SizableComponentSize.Medium" Shape="AvatarShape.Circle" class="avatar" dashboard-scope></IgbAvatar>
                                     <div class="column-layout group_9">
                                         <p class="typography__subtitle-2 content">
-                                            @item.LECTURER
+                                            @item.Lecturer
                                         </p>
                                         <p class="typography__body-2 content_1">
-                                            @item.LECTURERROLE
+                                            @item.Role
                                         </p>
                                     </div>
                                     <div class="row-layout rating-2">
@@ -102,7 +102,7 @@
                                     </div>
                                     <div class="row-layout group_10">
                                         <IgbChip Size="SizableComponentSize.Large" class="chip" dashboard-scope>
-                                            @item.TAG
+                                            @item.Tag
                                         </IgbChip>
                                     </div>
                                 </div>
@@ -225,13 +225,13 @@
 
 @code {
     private LearningApp.CurrentlyAttendingType[] learningAppCurrentlyAttending = Array.Empty<LearningApp.CurrentlyAttendingType>();
-    private LearningApp.CourseCategoriesType[] learningAppCourseCategories = Array.Empty<LearningApp.CourseCategoriesType>();
+    private LearningApp.CategoriesType[] learningAppCategories = Array.Empty<LearningApp.CategoriesType>();
     private LearningApp.PopularLecturersType[] learningAppPopularLecturers = Array.Empty<LearningApp.PopularLecturersType>();
 
     protected override async Task OnInitializedAsync()
     {
         learningAppCurrentlyAttending = await this.learningAppService.GetCurrentlyAttending() ?? learningAppCurrentlyAttending;
-        learningAppCourseCategories = await this.learningAppService.GetCourseCategories() ?? learningAppCourseCategories;
+        learningAppCategories = await this.learningAppService.GetCategories() ?? learningAppCategories;
         learningAppPopularLecturers = await this.learningAppService.GetPopularLecturers() ?? learningAppPopularLecturers;
     }
     private void Navigate(string path)

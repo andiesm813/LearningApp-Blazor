@@ -3,14 +3,14 @@ namespace Learning_Dashboard_v2.LearningApp;
 
 public class AllCoursesType
 {
-    public string? COURSE { get; set; }
-    public string? COURSEPIC { get; set; }
-    public double? RATING { get; set; }
-    public string? TAG { get; set; }
-    public string? LEVEL { get; set; }
-    public string? SHORTDESCR { get; set; }
-    public string? FULLDESCR { get; set; }
-    public string? LECTURER { get; set; }
-    public string? LECTURERROLE { get; set; }
-    public string? LECTURERPIC { get; set; }
+    public string? Course { get; set; }
+    public string? Image { get; set; }
+    public double? Rating { get; set; }
+    public string? Tag { get; set; }
+    public string? Level { get; set; }
+    public string? Intro { get; set; }
+    public string? Description { get; set; }
+    public string? Lecturer { get; set; }
+    public string? Role { get; set; }
+    public string? Avatar { get; set; }
 }

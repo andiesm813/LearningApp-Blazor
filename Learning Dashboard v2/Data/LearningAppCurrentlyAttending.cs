@@ -3,6 +3,6 @@ namespace Learning_Dashboard_v2.LearningApp;
 
 public class CurrentlyAttendingType
 {
-    public string? COURSE { get; set; }
-    public string? COURSEPIC { get; set; }
+    public string? Course { get; set; }
+    public string? Image { get; set; }
 }
