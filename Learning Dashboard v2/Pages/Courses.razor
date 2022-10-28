@@ -13,13 +13,13 @@
                     <IgbListItem class="list-item" courses-scope>
                         <div>
                             <div class="row-layout group_2">
-                                <img src="@item.COURSEPIC" class="image" />
+                                <img src="@item.Image" class="image" />
                                 <div class="column-layout group_3">
                                     <p class="typography__subtitle-2 content">
-                                        @item.COURSE
+                                        @item.Course
                                     </p>
                                     <p class="typography__caption text">
-                                        @item.SHORTDESCR
+                                        @item.Intro
                                     </p>
                                     <div class="row-layout group_4">
                                         <div class="row-layout rating-11">
@@ -40,10 +40,10 @@
                                             </span>
                                         </div>
                                         <IgbChip Size="SizableComponentSize.Large" class="chip" courses-scope>
-                                            @item.LEVEL
+                                            @item.Level
                                         </IgbChip>
                                         <IgbChip Size="SizableComponentSize.Large" class="chip" courses-scope>
-                                            @item.TAG
+                                            @item.Tag
                                         </IgbChip>
                                     </div>
                                 </div>

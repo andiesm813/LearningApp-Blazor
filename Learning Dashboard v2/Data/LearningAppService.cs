@@ -16,9 +16,9 @@ namespace Learning_Dashboard_v2.LearningApp
             return await this.http.GetFromJsonAsync<CurrentlyAttendingType[]>("https://excel2json.io/api/share/411814c4-bebf-4b2c-e661-08dab79fa5b4");
         }
 
-        public async Task<CourseCategoriesType[]?> GetCourseCategories()
+        public async Task<CategoriesType[]?> GetCategories()
         {
-            return await this.http.GetFromJsonAsync<CourseCategoriesType[]>("https://excel2json.io/api/share/c7c0f004-5d70-41db-e663-08dab79fa5b4");
+            return await this.http.GetFromJsonAsync<CategoriesType[]>("https://excel2json.io/api/share/c7c0f004-5d70-41db-e663-08dab79fa5b4");
         }
 
         public async Task<PopularLecturersType[]?> GetPopularLecturers()
