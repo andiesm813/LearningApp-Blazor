@@ -1,0 +1,241 @@
+@page "/"
+@inject NavigationManager NavigationManager
+@inject LearningApp.LearningAppService learningAppService
+
+<div class="row-layout dashboard-container">
+    <div class="column-layout group">
+        <div class="column-layout group_1">
+            <h6 class="content">
+                Continue learning
+            </h6>
+            <div class="row-layout group_2">
+                @foreach (var item in learningAppCurrentlyAttending)
+                {
+                    <IgbCard Outlined="true" class="card" dashboard-scope>
+                        <IgbCardMedia class="media-content" dashboard-scope>
+                            <img src="@item.COURSEPIC" class="image" />
+                        </IgbCardMedia>
+                        <IgbCardHeader>
+                            <h3 slot="title">
+                                @item.COURSE
+                            </h3>
+                            <h5 slot="subtitle">
+                            </h5>
+                        </IgbCardHeader>
+                        <IgbCardActions class="actions-content" dashboard-scope>
+                            <IgbButton @onclick="@(e => Navigate("courses"))" class="button" dashboard-scope>
+                                <span class="material-icons">
+                                    play_circle_filled
+                                </span>
+                                <span>Continue</span>
+                                <IgbRipple></IgbRipple>
+                            </IgbButton>
+                            <IgbButton Variant="ButtonVariant.Flat" class="icon-button button_1" dashboard-scope>
+                                <span class="material-icons">
+                                    check_circle_outline
+                                </span>
+                                <IgbRipple></IgbRipple>
+                            </IgbButton>
+                        </IgbCardActions>
+                    </IgbCard>
+                }
+            </div>
+        </div>
+        <div class="column-layout group_3">
+            <h6 class="content">
+                Explore new categories
+            </h6>
+            <div class="row-layout group_4">
+                @foreach (var item in learningAppCourseCategories)
+                {
+                    <div class="column-layout group_5">
+                        <img src="@item.CATEGORYPIC" class="image_1" />
+                        <p class="typography__subtitle-1 content">
+                            @item.CATEGORY
+                        </p>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="column-layout group_1">
+            <div class="row-layout group_6">
+                <h6 class="content">
+                    Popular lecturers
+                </h6>
+                <IgbButton Variant="ButtonVariant.Flat" class="button_2" dashboard-scope>
+                    See all
+                    <IgbRipple></IgbRipple>
+                </IgbButton>
+            </div>
+            <IgbList class="list" dashboard-scope>
+                @foreach (var item in learningAppPopularLecturers)
+                {
+                    <IgbListItem>
+                        <div>
+                            <div class="row-layout group_7">
+                                <div class="row-layout group_8">
+                                    <IgbAvatar Src="@item.LECTURERPIC" Size="SizableComponentSize.Medium" Shape="AvatarShape.Circle" class="avatar" dashboard-scope></IgbAvatar>
+                                    <div class="column-layout group_9">
+                                        <p class="typography__subtitle-2 content">
+                                            @item.LECTURER
+                                        </p>
+                                        <p class="typography__body-2 content_1">
+                                            @item.LECTURERROLE
+                                        </p>
+                                    </div>
+                                    <div class="row-layout rating-2">
+                                        <span class="material-icons icon">
+                                            star
+                                        </span>
+                                        <span class="material-icons icon">
+                                            star
+                                        </span>
+                                        <span class="material-icons icon">
+                                            star
+                                        </span>
+                                        <span class="material-icons icon">
+                                            star
+                                        </span>
+                                        <span class="material-icons icon_1">
+                                            star_border
+                                        </span>
+                                    </div>
+                                    <div class="row-layout group_10">
+                                        <IgbChip Size="SizableComponentSize.Large" class="chip" dashboard-scope>
+                                            @item.TAG
+                                        </IgbChip>
+                                    </div>
+                                </div>
+                                <div class="row-layout group_11">
+                                    <IgbButton Variant="ButtonVariant.Outlined" class="button_3" dashboard-scope>
+                                        See courses
+                                        <IgbRipple></IgbRipple>
+                                    </IgbButton>
+                                </div>
+                            </div>
+                        </div>
+                    </IgbListItem>
+                }
+            </IgbList>
+        </div>
+    </div>
+    <div class="column-layout side-panel">
+        <div class="column-layout group_12">
+            <div class="row-layout group_13">
+                <img src="assets/Avatar9.png" class="image_2" />
+            </div>
+            <div class="column-layout group_14">
+                <h5 class="content">
+                    Alan Carter
+                </h5>
+                <p class="typography__subtitle-2 text_1">
+                    Level 3
+                </p>
+            </div>
+        </div>
+        <div class="column-layout group_15">
+            <div class="column-layout group_16">
+                <div class="row-layout group_17">
+                    <img src="assets/ranking.svg" class="image_3" />
+                    <div class="column-layout group_18">
+                        <div class="row-layout group_19">
+                            <h6 class="h6">
+                                24
+                            </h6>
+                            <h6 class="content_1">
+                                / 90
+                            </h6>
+                        </div>
+                        <p class="typography__overline content">
+                            Ranking
+                        </p>
+                    </div>
+                </div>
+                <div class="row-layout group_17">
+                    <img src="assets/courses.svg" class="image_3" />
+                    <div class="column-layout group_18">
+                        <div class="row-layout group_19">
+                            <h6 class="h6">
+                                4
+                            </h6>
+                        </div>
+                        <p class="typography__overline content">
+                            COURSES
+                        </p>
+                    </div>
+                </div>
+                <div class="row-layout group_17">
+                    <img src="assets/tasks.svg" class="image_3" />
+                    <div class="column-layout group_20">
+                        <div class="row-layout group_19">
+                            <h6 class="h6">
+                                6
+                            </h6>
+                            <h6 class="content_1">
+                                / 12
+                            </h6>
+                        </div>
+                        <p class="typography__overline content">
+                            ASSIGNMENTS
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column-layout group_21">
+            <p class="typography__subtitle-2 text">
+                Today's tasks
+            </p>
+            <div class="row-layout group_22">
+                <div class="column-layout group_23">
+                    <p class="typography__subtitle-2 content">
+                        Build cards in Figma
+                    </p>
+                    <p class="typography__caption text_2">
+                        Due: Tomorrow
+                    </p>
+                </div>
+                <IgbCheckbox class="checkbox" dashboard-scope></IgbCheckbox>
+            </div>
+            <div class="row-layout group_24">
+                <div class="column-layout group_23">
+                    <p class="typography__subtitle-2 content">
+                        Flexbox exercise
+                    </p>
+                    <p class="typography__caption text_2">
+                        Due: Sept 5th
+                    </p>
+                </div>
+                <IgbCheckbox class="checkbox" dashboard-scope></IgbCheckbox>
+            </div>
+            <div class="row-layout group_25">
+                <div class="column-layout group_23">
+                    <p class="typography__subtitle-2 content">
+                        Build basic site structure
+                    </p>
+                    <p class="typography__caption text_2">
+                        Due: Sept 5th
+                    </p>
+                </div>
+                <IgbCheckbox class="checkbox" dashboard-scope></IgbCheckbox>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private LearningApp.CurrentlyAttendingType[] learningAppCurrentlyAttending = Array.Empty<LearningApp.CurrentlyAttendingType>();
+    private LearningApp.CourseCategoriesType[] learningAppCourseCategories = Array.Empty<LearningApp.CourseCategoriesType>();
+    private LearningApp.PopularLecturersType[] learningAppPopularLecturers = Array.Empty<LearningApp.PopularLecturersType>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        learningAppCurrentlyAttending = await this.learningAppService.GetCurrentlyAttending() ?? learningAppCurrentlyAttending;
+        learningAppCourseCategories = await this.learningAppService.GetCourseCategories() ?? learningAppCourseCategories;
+        learningAppPopularLecturers = await this.learningAppService.GetPopularLecturers() ?? learningAppPopularLecturers;
+    }
+    private void Navigate(string path)
+    {
+        NavigationManager.NavigateTo(path);
+    }
+}
